@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CDC5E9422D5700B5008C266E /* Reversi2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC5E9412D5700B5008C266E /* Reversi2App.swift */; };
+		CDC5E9442D5700B5008C266E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC5E9432D5700B5008C266E /* ContentView.swift */; };
+		CDC5E9462D5700B6008C266E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC5E9452D5700B6008C266E /* Assets.xcassets */; };
+		CDC5E9492D5700B6008C266E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC5E9482D5700B6008C266E /* Preview Assets.xcassets */; };
+		CDC5E9532D5700B6008C266E /* Reversi2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC5E9522D5700B6008C266E /* Reversi2Tests.swift */; };
+		CDC5E95D2D5700B6008C266E /* Reversi2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC5E95C2D5700B6008C266E /* Reversi2UITests.swift */; };
+		CDC5E95F2D5700B6008C266E /* Reversi2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC5E95E2D5700B6008C266E /* Reversi2UITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CDC5E94F2D5700B6008C266E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDC5E9362D5700B5008C266E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDC5E93D2D5700B5008C266E;
+			remoteInfo = Reversi2;
+		};
+		CDC5E9592D5700B6008C266E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDC5E9362D5700B5008C266E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDC5E93D2D5700B5008C266E;
+			remoteInfo = Reversi2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CDC5E93E2D5700B5008C266E /* Reversi2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reversi2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDC5E9412D5700B5008C266E /* Reversi2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reversi2App.swift; sourceTree = "<group>"; };
+		CDC5E9432D5700B5008C266E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CDC5E9452D5700B6008C266E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CDC5E9482D5700B6008C266E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CDC5E94E2D5700B6008C266E /* Reversi2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Reversi2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDC5E9522D5700B6008C266E /* Reversi2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reversi2Tests.swift; sourceTree = "<group>"; };
+		CDC5E9582D5700B6008C266E /* Reversi2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Reversi2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDC5E95C2D5700B6008C266E /* Reversi2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reversi2UITests.swift; sourceTree = "<group>"; };
+		CDC5E95E2D5700B6008C266E /* Reversi2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reversi2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CDC5E93B2D5700B5008C266E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC5E94B2D5700B6008C266E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC5E9552D5700B6008C266E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CDC5E9352D5700B5008C266E = {
+			isa = PBXGroup;
+			children = (
+				CDC5E9402D5700B5008C266E /* Reversi2 */,
+				CDC5E9512D5700B6008C266E /* Reversi2Tests */,
+				CDC5E95B2D5700B6008C266E /* Reversi2UITests */,
+				CDC5E93F2D5700B5008C266E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CDC5E93F2D5700B5008C266E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDC5E93E2D5700B5008C266E /* Reversi2.app */,
+				CDC5E94E2D5700B6008C266E /* Reversi2Tests.xctest */,
+				CDC5E9582D5700B6008C266E /* Reversi2UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CDC5E9402D5700B5008C266E /* Reversi2 */ = {
+			isa = PBXGroup;
+			children = (
+				CDC5E9412D5700B5008C266E /* Reversi2App.swift */,
+				CDC5E9432D5700B5008C266E /* ContentView.swift */,
+				CDC5E9452D5700B6008C266E /* Assets.xcassets */,
+				CDC5E9472D5700B6008C266E /* Preview Content */,
+			);
+			path = Reversi2;
+			sourceTree = "<group>";
+		};
+		CDC5E9472D5700B6008C266E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CDC5E9482D5700B6008C266E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CDC5E9512D5700B6008C266E /* Reversi2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CDC5E9522D5700B6008C266E /* Reversi2Tests.swift */,
+			);
+			path = Reversi2Tests;
+			sourceTree = "<group>";
+		};
+		CDC5E95B2D5700B6008C266E /* Reversi2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				CDC5E95C2D5700B6008C266E /* Reversi2UITests.swift */,
+				CDC5E95E2D5700B6008C266E /* Reversi2UITestsLaunchTests.swift */,
+			);
+			path = Reversi2UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CDC5E93D2D5700B5008C266E /* Reversi2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDC5E9622D5700B6008C266E /* Build configuration list for PBXNativeTarget "Reversi2" */;
+			buildPhases = (
+				CDC5E93A2D5700B5008C266E /* Sources */,
+				CDC5E93B2D5700B5008C266E /* Frameworks */,
+				CDC5E93C2D5700B5008C266E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Reversi2;
+			productName = Reversi2;
+			productReference = CDC5E93E2D5700B5008C266E /* Reversi2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CDC5E94D2D5700B6008C266E /* Reversi2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDC5E9652D5700B6008C266E /* Build configuration list for PBXNativeTarget "Reversi2Tests" */;
+			buildPhases = (
+				CDC5E94A2D5700B6008C266E /* Sources */,
+				CDC5E94B2D5700B6008C266E /* Frameworks */,
+				CDC5E94C2D5700B6008C266E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDC5E9502D5700B6008C266E /* PBXTargetDependency */,
+			);
+			name = Reversi2Tests;
+			productName = Reversi2Tests;
+			productReference = CDC5E94E2D5700B6008C266E /* Reversi2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CDC5E9572D5700B6008C266E /* Reversi2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDC5E9682D5700B6008C266E /* Build configuration list for PBXNativeTarget "Reversi2UITests" */;
+			buildPhases = (
+				CDC5E9542D5700B6008C266E /* Sources */,
+				CDC5E9552D5700B6008C266E /* Frameworks */,
+				CDC5E9562D5700B6008C266E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDC5E95A2D5700B6008C266E /* PBXTargetDependency */,
+			);
+			name = Reversi2UITests;
+			productName = Reversi2UITests;
+			productReference = CDC5E9582D5700B6008C266E /* Reversi2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CDC5E9362D5700B5008C266E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					CDC5E93D2D5700B5008C266E = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					CDC5E94D2D5700B6008C266E = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = CDC5E93D2D5700B5008C266E;
+					};
+					CDC5E9572D5700B6008C266E = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = CDC5E93D2D5700B5008C266E;
+					};
+				};
+			};
+			buildConfigurationList = CDC5E9392D5700B5008C266E /* Build configuration list for PBXProject "Reversi2" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CDC5E9352D5700B5008C266E;
+			productRefGroup = CDC5E93F2D5700B5008C266E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CDC5E93D2D5700B5008C266E /* Reversi2 */,
+				CDC5E94D2D5700B6008C266E /* Reversi2Tests */,
+				CDC5E9572D5700B6008C266E /* Reversi2UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CDC5E93C2D5700B5008C266E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC5E9492D5700B6008C266E /* Preview Assets.xcassets in Resources */,
+				CDC5E9462D5700B6008C266E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC5E94C2D5700B6008C266E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC5E9562D5700B6008C266E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CDC5E93A2D5700B5008C266E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC5E9442D5700B5008C266E /* ContentView.swift in Sources */,
+				CDC5E9422D5700B5008C266E /* Reversi2App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC5E94A2D5700B6008C266E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC5E9532D5700B6008C266E /* Reversi2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC5E9542D5700B6008C266E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC5E95F2D5700B6008C266E /* Reversi2UITestsLaunchTests.swift in Sources */,
+				CDC5E95D2D5700B6008C266E /* Reversi2UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CDC5E9502D5700B6008C266E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDC5E93D2D5700B5008C266E /* Reversi2 */;
+			targetProxy = CDC5E94F2D5700B6008C266E /* PBXContainerItemProxy */;
+		};
+		CDC5E95A2D5700B6008C266E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDC5E93D2D5700B5008C266E /* Reversi2 */;
+			targetProxy = CDC5E9592D5700B6008C266E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CDC5E9602D5700B6008C266E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CDC5E9612D5700B6008C266E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CDC5E9632D5700B6008C266E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Reversi2/Preview Content\"";
+				DEVELOPMENT_TEAM = CJ7BZ8FLC7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiyuan.Reversi2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CDC5E9642D5700B6008C266E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Reversi2/Preview Content\"";
+				DEVELOPMENT_TEAM = CJ7BZ8FLC7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiyuan.Reversi2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CDC5E9662D5700B6008C266E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJ7BZ8FLC7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiyuan.Reversi2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reversi2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Reversi2";
+			};
+			name = Debug;
+		};
+		CDC5E9672D5700B6008C266E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJ7BZ8FLC7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiyuan.Reversi2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reversi2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Reversi2";
+			};
+			name = Release;
+		};
+		CDC5E9692D5700B6008C266E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJ7BZ8FLC7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiyuan.Reversi2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Reversi2;
+			};
+			name = Debug;
+		};
+		CDC5E96A2D5700B6008C266E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJ7BZ8FLC7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yiyuan.Reversi2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Reversi2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CDC5E9392D5700B5008C266E /* Build configuration list for PBXProject "Reversi2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDC5E9602D5700B6008C266E /* Debug */,
+				CDC5E9612D5700B6008C266E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDC5E9622D5700B6008C266E /* Build configuration list for PBXNativeTarget "Reversi2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDC5E9632D5700B6008C266E /* Debug */,
+				CDC5E9642D5700B6008C266E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDC5E9652D5700B6008C266E /* Build configuration list for PBXNativeTarget "Reversi2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDC5E9662D5700B6008C266E /* Debug */,
+				CDC5E9672D5700B6008C266E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDC5E9682D5700B6008C266E /* Build configuration list for PBXNativeTarget "Reversi2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDC5E9692D5700B6008C266E /* Debug */,
+				CDC5E96A2D5700B6008C266E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CDC5E9362D5700B5008C266E /* Project object */;
+}
