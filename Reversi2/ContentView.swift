@@ -252,7 +252,7 @@ class ReversiGame: ObservableObject {
         
         for move in validMoves {
             //            let newBoard = simulateMove(row: move.0, col: move.1)
-            let newBoard = simulateMove(row: move.0, col: move.1, board: board, player: currentPlayer)
+            let newBoard = simulateDropOnePiece(row: move.0, col: move.1, board: board, player: currentPlayer)
             let score = minimax(board: newBoard, depth: depth - 1, alpha: Int.min, beta: Int.max, isMaximizing: false)
             
             if score > bestScore {
@@ -266,13 +266,14 @@ class ReversiGame: ObservableObject {
         return bestMoves.randomElement().map { (row: $0.0, col: $0.1) }
     }
     
+    // 极大极小算法实现
     private func minimax(board: [[Piece?]], depth: Int, alpha: Int, beta: Int, isMaximizing: Bool) -> Int {
         if depth == 0 {
             return evaluateBoard(board: board)
         }
         
         let currentColor = isMaximizing ? aiPlayer : aiPlayer.opposite
-        let validMoves = getAllValidMoves(for: currentColor, board: board)
+        let validMoves = getAllValidMoves(for: currentColor, in: board)
         
         if validMoves.isEmpty {
             return evaluateBoard(board: board)
@@ -284,7 +285,7 @@ class ReversiGame: ObservableObject {
         if isMaximizing {
             var maxEval = Int.min
             for move in validMoves {
-                let newBoard = simulateMove(row: move.0, col: move.1, board: board, player: currentColor)
+                let newBoard = simulateDropOnePiece(row: move.0, col: move.1, board: board, player: currentColor)
                 let eval = minimax(board: newBoard, depth: depth - 1, alpha: alpha, beta: beta, isMaximizing: false)
                 maxEval = max(maxEval, eval)
                 alpha = max(alpha, eval)
@@ -294,7 +295,7 @@ class ReversiGame: ObservableObject {
         } else {
             var minEval = Int.max
             for move in validMoves {
-                let newBoard = simulateMove(row: move.0, col: move.1, board: board, player: currentColor)
+                let newBoard = simulateDropOnePiece(row: move.0, col: move.1, board: board, player: currentColor)
                 let eval = minimax(board: newBoard, depth: depth - 1, alpha: alpha, beta: beta, isMaximizing: true)
                 minEval = min(minEval, eval)
                 beta = min(beta, eval)
@@ -320,8 +321,8 @@ class ReversiGame: ObservableObject {
         }
         
         // 行动力评估
-        let aiMoves = getAllValidMoves(for: aiPlayer, board: board).count
-        let playerMoves = getAllValidMoves(for: aiPlayer.opposite, board: board).count
+        let aiMoves = getAllValidMoves(for: aiPlayer, in: board).count
+        let playerMoves = getAllValidMoves(for: aiPlayer.opposite, in: board).count
         mobility = (aiMoves - playerMoves) * 10
         
         // 稳定子评估（角落）
@@ -335,7 +336,7 @@ class ReversiGame: ObservableObject {
     }
     
     // 工具方法
-    private func getAllValidMoves(for player: Piece? = nil, board: [[Piece?]]? = nil) -> [(Int, Int)] {
+    private func getAllValidMoves(for player: Piece? = nil, in board: [[Piece?]]? = nil) -> [(Int, Int)] {
         let currentPlayer = player ?? self.currentPlayer
         let checkBoard = board ?? self.board
         var moves = [(Int, Int)]()
@@ -350,18 +351,9 @@ class ReversiGame: ObservableObject {
         return moves
     }
     
-    // 模拟下这步棋 返回下完这步棋之后的新盘
-    private func simulateMove(row: Int, col: Int, board: [[Piece?]], player: Piece) -> [[Piece?]] {
-        var newBoard = board
-        var flipPieces: [(Int, Int)] = []
-        
-        // 模拟翻转逻辑...
-        
-        return newBoard
-    }
-    
     // 在一个棋盘中落1个子
-    private func dropOnePiece(row: Int, col: Int, in board: [[Piece?]], player: Piece) -> [[Piece?]] {
+    // 模拟下这步棋 返回下完这步棋之后的新盘势
+    private func simulateDropOnePiece(row: Int, col: Int, board: [[Piece?]], player: Piece) -> [[Piece?]] {
         var newBoard = board
         guard isValidDrop(row: row, col: col, board: newBoard, player: player) else { return newBoard }   // 如果不合法，不能在这里落子
         
@@ -395,52 +387,9 @@ class ReversiGame: ObservableObject {
                 }
             }
         }
-        
-        // 更新分数
-        updateScores()
-        // 轮到下一个玩家
-        player = player.opposite
-        
-        // 看看这个玩家能不能下子，如果不能下子有2种情况，1没有可以下的子，就跳过，2下满了，就结束游戏
-        // 这个优化流程：当你不能下，我也不能下，就结束，好处在于不用判断是否下满，减少代码量
-        if !hasAnyValidDrop(for: currentPlayer) {
-            currentPlayer = currentPlayer.opposite
-            if !hasAnyValidDrop(for: currentPlayer) {
-                gameOver = true
-            }
-        }
-        // 落子后检查是否需要AI移动
-        if aiEnabled && currentPlayer == aiPlayer {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.aiMakeMove()
-            }
-        }
+        return newBoard
     }
 }
-
-// 修改控制视图添加AI状态提示
-struct ControlView: View {
-    @ObservedObject var game: ReversiGame
-    
-    var body: some View {
-        VStack {
-            // 原有内容...
-            
-            if game.aiThinking {
-                ProgressView()
-                    .padding()
-                Text("AI正在思考...")
-                    .font(.caption)
-            }
-        }
-    }
-}
-
-// 预览保持不变
-
-
-
-
 
 // MARK: - View
 struct CellView: View {
@@ -562,6 +511,12 @@ struct ControlView: View {
                 Text("确定要重新开始游戏吗？当前进度将会丢失。")
             }
 
+            if game.aiThinking {
+                ProgressView()
+                    .padding()
+                Text("AI：让我思考一下...")
+                    .font(.caption)
+            }
             if game.gameOver {
                 Text("游戏结束")
                     .font(.title)
