@@ -29,8 +29,8 @@ class ReversiGame: ObservableObject {
     @Published var emptyCells = 0                       // 空格子数
     @Published var blackScore = 0                       // 黑方分数（棋子数）
     @Published var whiteScore = 0                       // 白方分数（棋子数）
-    @Published var aiEnabled = true
-    @Published var aiThinking = false
+    @Published var aiEnabled = true                     // 允许AI
+    @Published var aiThinking = false                   // AI在思考
     private let aiPlayer: Piece = .white                // 设置AI执白棋
     
     // 位置权重表
@@ -231,7 +231,7 @@ class ReversiGame: ObservableObject {
         aiThinking = true
         
         DispatchQueue.global(qos: .userInitiated).async {
-            let bestMove = self.findBestMove(depth: 3)
+            let bestMove = self.findBestMove(depth: 5)
             
             DispatchQueue.main.async {
                 if let move = bestMove {
@@ -251,7 +251,6 @@ class ReversiGame: ObservableObject {
         if validMoves.isEmpty { return nil }
         
         for move in validMoves {
-            //            let newBoard = simulateMove(row: move.0, col: move.1)
             let newBoard = simulateDropOnePiece(row: move.0, col: move.1, board: board, player: currentPlayer)
             let score = minimax(board: newBoard, depth: depth - 1, alpha: Int.min, beta: Int.max, isMaximizing: false)
             
@@ -266,7 +265,7 @@ class ReversiGame: ObservableObject {
         return bestMoves.randomElement().map { (row: $0.0, col: $0.1) }
     }
     
-    // 极大极小算法实现
+    // 极大极小算法
     private func minimax(board: [[Piece?]], depth: Int, alpha: Int, beta: Int, isMaximizing: Bool) -> Int {
         if depth == 0 {
             return evaluateBoard(board: board)
@@ -510,7 +509,15 @@ struct ControlView: View {
             } message: {
                 Text("确定要重新开始游戏吗？当前进度将会丢失。")
             }
+        }
+    }
+}
+// 信息窗口
+struct InfoView: View {
+    @ObservedObject var game: ReversiGame
 
+    var body: some View {
+        VStack {
             if game.aiThinking {
                 ProgressView()
                     .padding()
@@ -529,6 +536,7 @@ struct ControlView: View {
         }
     }
 }
+
 
 // 棋盘视图
 struct BoardView: View {
@@ -594,6 +602,8 @@ struct ContentView: View {
                             .frame(width: min(geometry.size.width, geometry.size.height) * 0.95,
                                    height: min(geometry.size.width, geometry.size.height) * 0.95)
                         Spacer()
+                        InfoView(game: game)
+                        Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color.green.opacity(0.3))
@@ -609,6 +619,8 @@ struct ContentView: View {
                                    height: min(geometry.size.width, geometry.size.height) * 0.95)
                         VStack {
                             ControlView(game: game)
+                            Spacer()
+                            InfoView(game: game)
                             Spacer()
                         }
                     }
