@@ -11,7 +11,7 @@ import SwiftUI
 struct Reversi2App: App {
     var body: some Scene {
         WindowGroup {
-            ReversiView()
+            ContentView()
         }
     }
 }
