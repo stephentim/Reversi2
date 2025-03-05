@@ -21,17 +21,25 @@ enum Piece: Equatable {
     }
 }
 
+enum PlayerType {
+    case human, ai1, ai2
+    
+    var isAI: Bool { self != .human }
+}
+
 // MARK: - Model
 class ReversiGame: ObservableObject {
     @Published var board: [[Piece]]                     // 棋盘
     @Published var currentPlayer: Piece = .black        // 当前玩家
+    @Published var blackPlayerType: PlayerType = .human // 黑色玩家类型
+    @Published var whitePlayerType: PlayerType = .human // 白色玩家类型
     @Published var gameOver = false                     // 游戏结束
     @Published var emptyCells = 0                       // 空格子数
     @Published var blackScore = 0                       // 黑方分数（棋子数）
     @Published var whiteScore = 0                       // 白方分数（棋子数）
     @Published var aiEnabled = true                     // 允许AI
     @Published var aiThinking = false                   // AI在思考
-    private let aiPlayer: Piece = .white                // 设置AI执白棋
+//    private let aiPlayer: Piece = .white                // 设置AI执白棋
     
     // 位置权重表
     private let positionWeights: [[Int]] = [
@@ -194,7 +202,7 @@ class ReversiGame: ObservableObject {
             }
         }
         // 落子后检查是否需要AI移动
-        if aiEnabled && currentPlayer == aiPlayer {
+        if aiEnabled && currentPlayer == .white && whitePlayerType.isAI {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.aiMakeMove()
             }
@@ -227,7 +235,7 @@ class ReversiGame: ObservableObject {
     
     // AI决策入口
     func aiMakeMove() {
-        guard aiEnabled && currentPlayer == aiPlayer else { return }
+        guard aiEnabled && currentPlayer == .white && whitePlayerType.isAI else { return }
         aiThinking = true
         
         DispatchQueue.global(qos: .userInitiated).async {
@@ -271,7 +279,7 @@ class ReversiGame: ObservableObject {
             return evaluateBoard(board: board)
         }
         
-        let currentColor = isMaximizing ? aiPlayer : aiPlayer.opposite
+        let currentColor = isMaximizing ? Piece.white : Piece.black
         let validMoves = getAllValidMoves(for: currentColor, in: board)
         
         if validMoves.isEmpty {
@@ -314,21 +322,21 @@ class ReversiGame: ObservableObject {
         for i in 0..<8 {
             for j in 0..<8 {
                 guard let piece = board[i][j] else { continue }
-                let weight = piece == aiPlayer ? positionWeights[i][j] : -positionWeights[i][j]
+                let weight = piece == Piece.white ? positionWeights[i][j] : -positionWeights[i][j]
                 score += weight
             }
         }
         
         // 行动力评估
-        let aiMoves = getAllValidMoves(for: aiPlayer, in: board).count
-        let playerMoves = getAllValidMoves(for: aiPlayer.opposite, in: board).count
+        let aiMoves = getAllValidMoves(for: Piece.white, in: board).count
+        let playerMoves = getAllValidMoves(for: Piece.black, in: board).count
         mobility = (aiMoves - playerMoves) * 10
         
         // 稳定子评估（角落）
         let corners = [(0,0), (0,7), (7,0), (7,7)]
         for (i,j) in corners {
             guard let piece = board[i][j] else { continue }
-            stability += piece == aiPlayer ? 50 : -50
+            stability += piece == Piece.white ? 50 : -50
         }
         
         return score + mobility + stability
@@ -563,6 +571,24 @@ struct BoardView: View {
     }
 }
 
+// 设置视图和AI策略实现
+struct PlayerConfigView: View {
+    let player: Piece
+    @Binding var type: PlayerType
+    
+    var body: some View {
+        VStack {
+            Text(player == .black ? "黑色棋手设置：" : "白色棋手设置：")
+            Picker("白色棋手设置：", selection: $type) {
+                Text("人手").tag(PlayerType.human)
+                Text("AI:极大极小+α-β剪枝").tag(PlayerType.ai1)
+                Text("AI:蒙特卡洛树").tag(PlayerType.ai2)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+        }
+    }
+}
+
 // 版本信息
 struct copyrightView: View {
     // 计算属性获取版本信息
@@ -574,6 +600,7 @@ struct copyrightView: View {
     var body: some View {
         Text("设计者：Tim@博学堂\n版本号：\(appVersion)")
             .font(.footnote)
+            .foregroundColor(.gray.opacity(0.5))
         .padding()
     }
 }
@@ -582,6 +609,8 @@ struct copyrightView: View {
 struct ContentView: View {
     @StateObject var game = ReversiGame()
 
+    @State var type: Int = 0
+    
     var body: some View {
         GeometryReader { geometry in
             let isPortrait = geometry.size.height > geometry.size.width
@@ -601,6 +630,7 @@ struct ContentView: View {
                         BoardView(game: game)
                             .frame(width: min(geometry.size.width, geometry.size.height) * 0.95,
                                    height: min(geometry.size.width, geometry.size.height) * 0.95)
+                        PlayerConfigView(player: .white, type: $game.whitePlayerType)
                         Spacer()
                         InfoView(game: game)
                         Spacer()
@@ -617,8 +647,10 @@ struct ContentView: View {
                         BoardView(game: game)
                             .frame(width: min(geometry.size.width, geometry.size.height) * 0.95,
                                    height: min(geometry.size.width, geometry.size.height) * 0.95)
+                        Spacer()
                         VStack {
                             ControlView(game: game)
+                            PlayerConfigView(player: .white, type: $game.whitePlayerType)
                             Spacer()
                             InfoView(game: game)
                             Spacer()
